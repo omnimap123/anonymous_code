@@ -1,0 +1,64 @@
+Training:
+  init_itr_num: 1000
+  init_gaussian_update: 100
+  init_gaussian_reset: 500
+  init_gaussian_th: 0.005
+  init_gaussian_extent: 30
+  gaussian_extent: 1.0
+  gaussian_update_every: 201
+  gaussian_reset: 301
+  gaussian_th: 0.7
+  size_threshold: 20
+  rgb_boundary_threshold: 0.01
+  max_keyframe_skip: 10
+  window_size: 19
+  frame_itr: 1
+  alpha: 0.8
+  use_ssim: true
+  ssim_weight: 0.25
+  use_omni_normal: false
+  normal_weight: 0.05
+  compensate_exposure: false
+  deblur: true
+  
+
+opt_params:
+  pose_lr: 0.0001
+  position_lr_init: 0.00016
+  position_lr_final: 0.0000016
+  feature_lr: 0.0025
+  opacity_lr: 0.05
+  scaling_lr: 0.001
+  rotation_lr: 0.001
+  percent_dense: 0.01
+  lambda_dssim: 0.2
+  densify_grad_threshold: 0.0002
+  exposure_lr: 0.02
+  post_refine: true
+  post_itr: 500
+  deblur_trans: 0.001
+  deblur_weight: 0.01
+
+
+tsdf:
+  voxel_size: 0.03
+  block_resolution: 8
+  block_count: 30000
+  unregistered_threshold: 0.05
+
+
+instance:
+  instance_skip: 20
+  pro_thre: 0.20
+  ins_min_count: 3
+  vox_min_count: 3
+  ins_min_voxel: 15
+  fill_dis: 0.05
+  
+path:
+  data_path: /data/dyn/ScanNet/scans
+  yolo_config: /code1/dyn/codes/OpenWorld/YOLO-World/configs/pretrain/yolo_world_v2_l_clip_large_vlpan_bn_2e-3_100e_4x8gpus_obj365v1_goldg_train_800ft_lvis_minival.py
+  yolo_cp: /data/dyn/weights/yolo-world/yolo_world_v2_l_clip_large_o365v1_goldg_pretrain_800ft-9df82e55.pth
+  tap_cp1: /home/dyn/outdoor/tokenize-anything/weights/tap_vit_l_03f8ec.pkl
+  tap_cp2: /home/dyn/outdoor/tokenize-anything/weights/merged_2560.pkl
+  sbert_cp: /home/dyn/multimodal/SBERT/pretrained/model/all-MiniLM-L6-v2
